@@ -3,7 +3,7 @@ require "nokogiri"
 
 ActionDispatch::Response.module_eval do
   def json
-    @json ||= JSON.parse(body, object_class: ActiveSupport::HashWithIndifferentAccess)
+    @json ||= JSON.parse(body, symbolize_names: true)
   end
 
   def html
